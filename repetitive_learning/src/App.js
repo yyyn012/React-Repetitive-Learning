@@ -1,12 +1,12 @@
 import React from "react";
-import UseEffectApp from "./components/UseEffect";
+import UseEffectFunc from "./components/UseEffectFunc";
 
-function App() {
+const App = () => {
   return (
     <div>
-      <UseEffectApp />
+      <UseEffectFunc />
     </div>
   );
-}
+};
 
 export default App;
