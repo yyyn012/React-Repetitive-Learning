@@ -1,22 +1,45 @@
-.menu ul {
-  background: #fff;
-  border-radius: 8px;
-  position: absolute;
-  top: 30px;
-  right: 0;
-  width: 150px;
-  text-align: center;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-20px);
-  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-  padding: 10px;
-  cursor: pointer;
+@keyframes slideFadeInAni {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
-.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+.slide_fadeIn {
+  overflow: hidden;
+}
+
+.slide_fadeIn > ul {
+  animation: slideFadeInAni 0.4s ease;
+}
+
+@keyframes slideFadeOutAni {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.slide_fadeOut {
+  overflow: hidden;
+}
+
+.slide_fadeOut > ul {
+  animation: slideFadeOutAni 0.4s ease;
+  animation-fill-mode: forwards;
+}
+
+.components_dropdown > ul {
+  position: relative;
+  top: 5px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding-left: 0;
+  list-style: none;
 }

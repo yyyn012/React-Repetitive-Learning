@@ -1,21 +1,24 @@
-import React, { useRef } from "react";
-import useDetectClose from "../assets/hooks/useDetectClose";
+import React, { useState } from "react";
+import DropMenu from "./DropMenu";
 
-const DropdownMenu = () => {
-  const dropDownRef = useRef(null);
-  const [isOpen, setIsOpen] = useDetectClose(dropDownRef, false);
+const DropdownMenu = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   const openMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div ref={dropDownRef} className="menu">
-      <button onClick={openMenu}>메뉴 보기</button>
+    <div className="menu">
+      <button onClick={openMenu}>메뉴 보기{isOpen ? "close" : "open"}</button>
 
-      <ul className={isOpen ? "active" : ""}>
-        <li>마이페이지</li>
-      </ul>
+      <DropMenu visibility={isOpen}>
+        <ul>
+          <li>마이페이지</li>
+          <li>마이페이지2</li>
+          <li>마이페이지3</li>
+        </ul>
+      </DropMenu>
     </div>
   );
 };
