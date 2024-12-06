@@ -8,15 +8,28 @@ const DropdownMenu = (props) => {
     setIsOpen(!isOpen);
   };
 
+  const handleBlur = () => {
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 100);
+    console.log("blur");
+  };
+
   return (
-    <div className="menu">
+    <div className="menu" onBlur={handleBlur}>
       <button onClick={openMenu}>메뉴 보기{isOpen ? "close" : "open"}</button>
 
       <DropMenu visibility={isOpen}>
         <ul>
-          <li>마이페이지</li>
-          <li>마이페이지2</li>
-          <li>마이페이지3</li>
+          <li>
+            <a href="">마이페이지</a>
+          </li>
+          <li>
+            <a href="">마이페이지2</a>
+          </li>
+          <li>
+            <a href="">마이페이지3</a>
+          </li>
         </ul>
       </DropMenu>
     </div>
